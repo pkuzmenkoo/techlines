@@ -10,7 +10,6 @@ import {
   WrapItem,
 } from '@chakra-ui/react';
 import ProductCart from '../components/ProductCart';
-import { products } from '../products';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../redux/actions/productActions';
 import { useEffect } from 'react';
