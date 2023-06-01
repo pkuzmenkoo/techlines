@@ -29,6 +29,5 @@ export const addCartItem = (id, qty) => async (dispatch) => {
 
 export const removeCartItem = (id) => async (dispatch) => {
   dispatch(setLoading(true));
-  dispatch(cartItemRemoval(id))
- 
+  dispatch(cartItemRemoval(id));
 };
