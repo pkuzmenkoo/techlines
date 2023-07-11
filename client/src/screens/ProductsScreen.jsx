@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../redux/actions/productActions';
 import { useEffect } from 'react';
 
-const ProductsSreen = () => {
+const ProductsScreen = () => {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.products);
   const { loading, error, products } = productList;
@@ -48,4 +48,4 @@ const ProductsSreen = () => {
   );
 };
 
-export default ProductsSreen;
+export default ProductsScreen;
