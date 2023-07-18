@@ -36,11 +36,11 @@ const orderSchema = new mongoose.Schema(
             postalCode: { type: String, required: true },
             country: { type: String, required: true },
         },
-        paymentMetod: {
+        paymentMethod: {
             type: String,
             default: false,
         },
-        paymetDetails: {
+        paymentDetails: {
             orderId: { type: String },
             payerId: { type: String },
         },
@@ -64,9 +64,7 @@ const orderSchema = new mongoose.Schema(
             type: Date,
         },
     },
-    {
-        timestamps: true,
-    }
+    { timestamps: true }
 );
 
 const Order = mongoose.model("Order", orderSchema);

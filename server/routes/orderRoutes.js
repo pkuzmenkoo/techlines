@@ -9,7 +9,7 @@ const createOrder = asyncHandler(async (req, res) => {
     const {
         orderItems,
         shippingAddress,
-        paymentMetod,
+        paymentMethod,
         shippingPrice,
         totalPrice,
         paymentDetails,
@@ -26,7 +26,7 @@ const createOrder = asyncHandler(async (req, res) => {
             username: userInfo.name,
             email: userInfo.email,
             shippingAddress,
-            paymentMetod,
+            paymentMethod,
             paymentDetails,
             shippingPrice,
             totalPrice,
