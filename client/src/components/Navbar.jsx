@@ -32,7 +32,7 @@ import {
     MdLogout,
     MdOutlineAdminPanelSettings,
 } from "react-icons/md";
-import { FiShoppingCart } from 'react-icons/fi';
+import { FiShoppingCart } from "react-icons/fi";
 import { GiTechnoHeart } from "react-icons/gi";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -42,20 +42,26 @@ const ShoppingCartIcon = () => {
     const cartInfo = useSelector((state) => state.cart);
     const { cart } = cartInfo;
     return (
-      <Flex>
-        <Text fontStyle='italic' as='sub' fontSize='xs'>
-          {cart.length}
-        </Text>
-        <Icon ml='-1.5' as={FiShoppingCart} h='4' w='7' alignSelf='center' />
-        Cart
-      </Flex>
+        <Flex>
+            <Text fontStyle="italic" as="sub" fontSize="xs">
+                {cart.length}
+            </Text>
+            <Icon
+                ml="-1.5"
+                as={FiShoppingCart}
+                h="4"
+                w="7"
+                alignSelf="center"
+            />
+            Cart
+        </Flex>
     );
-  };
-  
-  const links = [
-    { linkName: 'Products', path: '/products' },
-    { linkName: <ShoppingCartIcon />, path: '/cart' },
-  ];
+};
+
+const links = [
+    { linkName: "Products", path: "/products" },
+    { linkName: <ShoppingCartIcon />, path: "/cart" },
+];
 
 const NavLink = ({ path, children }) => (
     <Link
@@ -147,7 +153,8 @@ const Navbar = () => {
                                 transition="all 0.3s"
                                 as={Button}
                             >
-                                {userInfo.name} <ChevronDownIcon />
+                                {userInfo.name}
+                                <ChevronDownIcon />
                             </MenuButton>
                             <MenuList>
                                 <MenuItem as={ReactLink} to="/profile">
@@ -158,6 +165,18 @@ const Navbar = () => {
                                     <MdLocalShipping />
                                     <Text ml="2">Your Orders</Text>
                                 </MenuItem>
+                                {userInfo.isAdmin === true && (
+                                    <>
+                                        <MenuDivider />
+                                        <MenuItem
+                                            as={ReactLink}
+                                            to="/admin-console"
+                                        >
+                                            <MdOutlineAdminPanelSettings />
+                                            <Text ml="2">Admin Console</Text>
+                                        </MenuItem>
+                                    </>
+                                )}
                                 <MenuDivider />
                                 <MenuItem onClick={logoutHandler}>
                                     <MdLogout />

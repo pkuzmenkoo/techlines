@@ -12,6 +12,7 @@ import { LandingScreen } from "./screens/LandingScreen";
 import CheckoutScreen from "./screens/CheckoutScreen";
 import OrderSuccessScreen from "./screens/OrderSuccessScreen";
 import YourOrdersScreen from "./screens/YourOrdersScreen";
+import AdminConsoleScreen from "./screens/AdminConsoleScreen";
 
 function App() {
     return (
@@ -50,6 +51,10 @@ function App() {
                         <Route
                             path="/your-orders"
                             element={<YourOrdersScreen />}
+                        ></Route>
+                        <Route
+                            path="/admin-console"
+                            element={<AdminConsoleScreen />}
                         ></Route>
                     </Routes>
                 </main>
