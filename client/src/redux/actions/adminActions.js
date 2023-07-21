@@ -266,3 +266,36 @@ export const uploadProduct = (newProduct) => async (dispatch, getState) => {
         );
     }
 };
+
+export const removeReview =
+    (productId, reviewId) => async (dispatch, getState) => {
+        const {
+            user: { userInfo },
+        } = getState();
+
+        try {
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${userInfo.token}`,
+                    "Content-Type": "application/json",
+                },
+            };
+            const { data } = await axios.put(
+                `api/products/${productId}/${reviewId}`,
+                {},
+                config
+            );
+            dispatch(setProducts(data));
+            dispatch(setReviewRemovalFlag());
+        } catch (error) {
+            dispatch(
+                setError(
+                    error.response && error.response.data.message
+                        ? error.response.data.message
+                        : error.message
+                        ? error.message
+                        : "Review could not be removed."
+                )
+            );
+        }
+    };
